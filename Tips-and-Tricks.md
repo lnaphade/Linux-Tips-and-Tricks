@@ -5,6 +5,15 @@ awk -F':' '{ print $1 }' /etc/passwd (. usernames will be print the the first fi
 awk '{print NR "- " $1 }' /etc/passwd (To print the first item ($1) and then the second last item )
 
 awk '/localhost/{print}' /etc/hosts  ( awk will match line having localhost in the  /etc/hosts file)
+awk -F\" '{print $2}' 	/var/log/apache2/access_log   # request line (%r)
+awk -F\" '{print $4}' 	/var/log/apache2/access_log   # referer
+awk -F\" '{print $6}'  /var/log/apache2/access_log    # user agent
+awk '{print $1}' access_log         # ip address (%h)
+awk '{print $2}' access_log         # RFC 1413 identity (%l)
+awk '{print $3}' access_log         # userid (%u)
+awk '{print $4,5}' access_log       # date/time (%t)
+awk '{print $9}' access_log         # status code (%>s)
+awk '{print $10}' access_log        # size (%b)
 
 ```
 
